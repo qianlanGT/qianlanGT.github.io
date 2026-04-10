@@ -1,0 +1,230 @@
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 基础样式 */
+body {
+  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  color: #fff;
+}
+
+/* 动态背景渐变 */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 主容器 */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* 头像区域 */
+.avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 30px;
+}
+
+.avatar-border {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00f2fe, #4facfe, #f093fb);
+  animation: rotate 3s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.avatar {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #1a1a2e;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* 个人信息 */
+.info .name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #4facfe, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.info .title {
+  font-size: 18px;
+  color: #a8b2d1;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.info .bio {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #c9d1d9;
+  margin-bottom: 30px;
+}
+
+/* 技能标签 */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.skill-tag {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 14px;
+  color: #e6edf3;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(79, 172, 254, 0.2);
+  border-color: #4facfe;
+  transform: translateY(-2px);
+}
+
+/* 社交链接 */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: linear-gradient(45deg, #4facfe, #f093fb);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+/* 按钮区域 */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: #4facfe;
+  background: rgba(79, 172, 254, 0.1);
+  transform: translateY(-3px);
+}
+
+/* 底部版权 */
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+/* 响应式适配 */
+@media (max-width: 480px) {
+  .container {
+    padding: 60px 15px;
+  }
+  .info .name {
+    font-size: 26px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 80%;
+  }
+}
